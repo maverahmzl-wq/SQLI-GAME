@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Girişi - SQLI Laboratuvarı</title>
+    <style>
+        body { background: #121212; color: #00ff00; font-family: 'Courier New', Courier, monospace; text-align: center; padding-top: 100px; }
+        input { padding: 10px; width: 300px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>SİSTEM YÖNETİMİ</h1>
+    <form action="/admin/login" method="POST">
+        <input type="text" name="username" placeholder="Kullanıcı Adı" required><br><br>
+        <input type="password" name="password" placeholder="Şifre" required><br><br>
+        <button type="submit">Giriş Yap</button>
+    </form>
+</body>
+</html>

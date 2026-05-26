@@ -1,0 +1,12 @@
+<h1>Admin Dashboard</h1>
+<table id="statsTable">
+    <tr><th>Kullanıcı</th><th>Level</th><th>Hata Sayısı</th></tr>
+</table>
+<script>
+    fetch('/api/stats').then(res => res.json()).then(data => {
+        data.forEach(log => {
+            document.getElementById('statsTable').innerHTML += 
+            `<tr><td>${log.user}</td><td>${log.level}</td><td>${log.errors}</td></tr>`;
+        });
+    });
+</script>

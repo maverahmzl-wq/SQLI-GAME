@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>SQLI-GAME - Level <%= level %></title></head>
+<body>
+    <h1>Seviye <%= level %></h1>
+    <div id="content"><%- content %></div>
+    <input id="q" placeholder="SQL sorgusu gir...">
+    <button onclick="check()">Saldır!</button>
+
+    <script>
+        function check() {
+            let v = document.getElementById('q').value;
+            // Sunucuya gönderip doğrulatacağız
+            fetch('/check-level', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ level: '<%= level %>', guess: v })
+            }).then(r => r.json()).then(data => {
+                if(data.success) {
+                    alert("Başarılı!");
+                    window.location.href = "/levels/" + (parseInt('<%= level %>') + 1);
+                } else {
+                    alert("Hata: Sistem seni izliyor!");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

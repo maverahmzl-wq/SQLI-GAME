@@ -1,0 +1,1 @@
+CREATE TABLE admins (id INTEGER PRIMARY KEY, username TEXT, password TEXT); INSERT INTO admins VALUES (1, 'admin', 'sync-admin-passwords');
